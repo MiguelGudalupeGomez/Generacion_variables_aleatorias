@@ -14,5 +14,6 @@ public class Generacion_variables_aleatorias {
         System.out.println("Hello World!");
         System.out.println("Hola GitHub");
         System.out.println("Hola GitHub");
+        System.out.println("Ya se pudo jeje");
     }
 }
