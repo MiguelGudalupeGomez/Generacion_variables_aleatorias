@@ -51,7 +51,7 @@ public class PruebasEstadisticas {
 
     //Este método tiene como parametro dos arreglos, ambos deben ser del mismo tamaño
     //para poder realizar la prueba
-    //El método retorna true la muestra sigue una distribución independiente
+    //El método retorna true si la muestra sigue una distribución independiente
     public boolean pruebaIndependencia(double datos1[], double[] datos2) {
         if (datos1.length != datos2.length) {
             throw new IllegalArgumentException("Los dos arreglos deben tener la misma longitud");

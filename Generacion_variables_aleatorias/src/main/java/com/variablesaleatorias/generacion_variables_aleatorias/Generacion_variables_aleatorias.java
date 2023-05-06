@@ -14,6 +14,8 @@ import java.awt.EventQueue;
 public class Generacion_variables_aleatorias {
 
     public static void main(String[] args) {
+        //nos aseguramos de que cualquier tarea que actualice la GUI,
+        //lo haga de manera segura y evita problemas de concurrencia
         EventQueue.invokeLater(() -> {
             //instanciamos WindowApp para mostrar la ventana
             WindowApp windowApp = new WindowApp();
