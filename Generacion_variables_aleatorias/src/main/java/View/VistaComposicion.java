@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.table.DefaultTableModel;
 
 public class VistaComposicion extends JFrame{
     
@@ -21,6 +22,9 @@ public class VistaComposicion extends JFrame{
     JLabel pedir = new JLabel("Cantidad:");
     JTextField veces = new JTextField();
     JButton generar = new JButton("Generar"); 
+    JTable tabla = new JTable();
+    DefaultTableModel dtm = new DefaultTableModel();
+    JScrollPane barra = new JScrollPane(); 
     
     public VistaComposicion() {
         
@@ -28,12 +32,18 @@ public class VistaComposicion extends JFrame{
         setLocationRelativeTo(null); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Método de composición");
+        String [] encabezado = new String[]{"i","Discretas","Continuas"};
+       
+        dtm.setColumnIdentifiers(encabezado);
+        tabla.setModel(dtm); 
         darFormato(); 
     }
     
     public void darFormato() {
         
         panel.setBackground(Color.white);
+        panel.setLayout(null); 
+        getContentPane().add(panel); 
         
         titulo.setBounds(280,30,370,40); 
         titulo.setFont(new Font("Roboto Black",Font.BOLD,26));
@@ -53,6 +63,11 @@ public class VistaComposicion extends JFrame{
         JLabel icono = new JLabel(new ImageIcon("/Dados.png"));
         icono.setBounds(10,30,200,170);
         
+        tabla.setBounds(220,130,300,80);
+        barra.setBounds(220,130,300,80); 
+        barra.setViewportView(tabla);
+        
+        panel.add(barra); 
         panel.add(icono); 
         panel.add(generar); 
         panel.add(veces); 
