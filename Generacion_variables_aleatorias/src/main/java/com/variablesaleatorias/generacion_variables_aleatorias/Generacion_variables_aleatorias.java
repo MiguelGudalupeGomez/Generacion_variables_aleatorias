@@ -4,7 +4,7 @@
 package com.variablesaleatorias.generacion_variables_aleatorias;
 
 import Controller.StartApp;
-import View.WindowApp;
+import View.WindowMain;
 import java.awt.EventQueue;
 
 /**
@@ -17,8 +17,8 @@ public class Generacion_variables_aleatorias {
         //nos aseguramos de que cualquier tarea que actualice la GUI,
         //lo haga de manera segura y evita problemas de concurrencia
         EventQueue.invokeLater(() -> {
-            //instanciamos WindowApp para mostrar la ventana
-            WindowApp windowApp = new WindowApp();
+            //instanciamos WindowMain para mostrar la ventana
+            WindowMain windowApp = new WindowMain();
             
             //agregamos widowApp al controlador
             StartApp startApp = new StartApp(windowApp);
