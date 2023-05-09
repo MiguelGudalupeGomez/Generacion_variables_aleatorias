@@ -29,19 +29,20 @@ public class WindowPruebasEstadisticas extends JFrame{
     public JPanel panelResultados;
     public JButton buttonGenerarNumeros;
     public JButton buttonRealizarPruebas;
-    public DefaultTableModel tableModel;
+    //public DefaultTableModel tableModel;
     private JScrollPane scrollPane;
-    private DefaultTableModel defaultTableModel;
+    public DefaultTableModel defaultTableModel;
     public JTable jTable;
     public JTextArea jTextArea;
-    private final int SIZE_ARRAY = 1000;
+    public static final int SIZE_ARRAY = 1000;
     
     
     //hacemos uso del patron singelton para evitar que se cree mas de una instancia
     //de esta clase, cada que se hace click en el boton
     private WindowPruebasEstadisticas(){
-        super("Pruebas estadísticas de 10,000,000 de números");
+        super("Pruebas estadísticas de 10,000,000 de números, entre 1 y 100");
         this.setSize(600, 400);
+        this.setResizable(false);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
@@ -49,7 +50,7 @@ public class WindowPruebasEstadisticas extends JFrame{
         
         this.setVisible(true);
     }
-    public static WindowPruebasEstadisticas otraInstancia(){
+    public static WindowPruebasEstadisticas getInstance(){
         //la ventana solo se creará cuando "instancia" esté vacía (null)
         if(instancia == null){
             //instanciamos la clase
@@ -77,13 +78,13 @@ public class WindowPruebasEstadisticas extends JFrame{
         this.panelNumerosGenerados.setBounds(0, 40, (this.getWidth() / 2), this.getHeight());
         
         String[] columnas = {"Datos 1", "Datos 2"};
-        Object[][] filas = new Object[this.SIZE_ARRAY][2];
+        Object[][] filas = new Object[WindowPruebasEstadisticas.SIZE_ARRAY][2];
         for(var i :  filas){
             i[0] = "";
             i[1] = "";
         }
-        this.tableModel = new DefaultTableModel(filas, columnas);
-        this.jTable = new JTable(this.tableModel);
+        this.defaultTableModel = new DefaultTableModel(filas, columnas);
+        this.jTable = new JTable(this.defaultTableModel);
                 DefaultTableCellRenderer render = new DefaultTableCellRenderer();
         render.setHorizontalAlignment(JLabel.CENTER);
         this.jTable.setDefaultRenderer(Object.class, render);
@@ -93,8 +94,10 @@ public class WindowPruebasEstadisticas extends JFrame{
         this.panelNumerosGenerados.add(scrollPane);
         
         this.panelResultados = new JPanel();
-        this.panelResultados.setBounds(this.getWidth()/2, 40, this.getWidth()/2, this.getHeight()-90);
-        this.jTextArea = new JTextArea();
+        this.panelResultados.setBounds(this.getWidth()/2, 40, this.getWidth(), this.getHeight()-90);
+        this.jTextArea = new JTextArea("\n\tPRUEBAS ESTADÍSTICAS");
+        this.jTextArea.setPreferredSize(new Dimension(this.panelResultados.getWidth(), 
+                              this.panelResultados.getHeight()));
         this.panelResultados.add(jTextArea);
         
         

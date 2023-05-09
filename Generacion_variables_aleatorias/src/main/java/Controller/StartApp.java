@@ -16,38 +16,43 @@ import java.awt.event.WindowEvent;
  * @author PC
  */
 public class StartApp {
+
     private PruebasEstadisticas pEstadisticas;
     private Composicion composicion;
     private WindowMain windowApp;
-    
-    public StartApp(WindowMain windowApp){
+
+    public StartApp(WindowMain windowApp) {
         this.windowApp = windowApp;
-        
+
         this.initComponents();
     }
-    private void initComponents(){
+
+    private void initComponents() {
         //definicmos el comportamiento para el boton Composicion
-        windowApp.composicionButton.addActionListener(e -> {
-        
+        this.windowApp.composicionButton.addActionListener(e -> {
+
         });
-        
+
         //definimos el comportamiento del boton pruebas estadísticas
-        windowApp.pruebasEstadtisticasButton.addActionListener(e -> {
-            WindowPruebasEstadisticas wPruebasEstadisticas = WindowPruebasEstadisticas.otraInstancia();
-            
+        this.windowApp.pruebasEstadtisticasButton.addActionListener(e -> {
+            //generamos una instancia de la ventana de las pruebas estadísticas
+            WindowPruebasEstadisticas wPruebasEstadisticas = WindowPruebasEstadisticas.getInstance();
+            //generamos una instancia del controlador de las pruebas estadísticas
+            ControllerPruebasEstadisticas.getInstance(wPruebasEstadisticas);
+
             //detectemos que la ventana de pruebas estadísticas se cierre
-            wPruebasEstadisticas.addWindowListener(new WindowAdapter(){
+            wPruebasEstadisticas.addWindowListener(new WindowAdapter() {
                 @Override
-                public void windowClosing(WindowEvent e){
-                    //cuando se cierra la ventana el la instancia la reestablecemos a null
+                public void windowClosing(WindowEvent e) {
+                    //cuando se cierra la ventana la instancia la reestablecemos a null
                     //con eso controlamos que solo se instancie el objeto cuando no hay otro objeto
-                    //del mismo tipo
+                    //del mismo tipo ya creado
                     WindowPruebasEstadisticas.instancia = null;
                 }
-            
+
             });
-        
+
         });
-        
+
     }
 }

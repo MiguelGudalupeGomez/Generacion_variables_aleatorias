@@ -5,12 +5,8 @@
 package View;
 
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridLayout;
-import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -40,7 +36,7 @@ public class WindowMain extends JFrame {
     public WindowMain() {
         super("Generación de variables aleatorias");
         this.setSize(600, 400);//establecemos el tamaño de la ventana
-        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false); //desactivamos el ridimensionamiento de la ventana
         this.setLayout(null);
         this.setLocationRelativeTo(null); //establecemos la posicion de la ventana en medio de la pantalla
