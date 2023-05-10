@@ -1,40 +1,32 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package View;
 
-/**
- *
- * @author E m m a n u e l
- */
-import Model.Composicion;
-import javax.swing.*;
-import java.awt.Color; 
+import Model.Convolucion;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-public class VistaComposicion extends JFrame{
+public class WindowConvolucion extends JFrame{
     
     JPanel panel = new JPanel(); 
-    JLabel titulo = new JLabel("MÉTODO DE COMPOSICIÓN");
-    JLabel pedir = new JLabel("Cantidad:");
+    JLabel titulo = new JLabel("MÉTODO DE CONVOLUCIÓN");
+    JLabel pedir = new JLabel("Veces : ");
     JTextField veces = new JTextField();
     JButton generar = new JButton("Generar"); 
     JTable tabla = new JTable();
     DefaultTableModel dtm = new DefaultTableModel();
     JScrollPane barra = new JScrollPane(); 
     
-    public VistaComposicion() {
+    public WindowConvolucion() {
         
         setSize(664,445); 
         setLocationRelativeTo(null); 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setTitle("Método de composición | Equipo 3");
+        setTitle("Método de convolución | Equipo 2");
         String [] encabezado = new String[]{"i","Discretas","Continuas"};
        
         dtm.setColumnIdentifiers(encabezado);
@@ -81,9 +73,9 @@ public class VistaComposicion extends JFrame{
         
         generar.setBounds(385,105,89,32);
         generar.setBackground(new Color(255,255,255));
-        generar.setForeground(new Color(255,204,0));
+        generar.setForeground(Color.RED);
         
-        JLabel icono = new JLabel(new ImageIcon("Dados.png"));
+        JLabel icono = new JLabel(new ImageIcon("Poker.png"));
         icono.setBounds(10,30,200,170);
         
         tabla.setBounds(280,155,330,240);
@@ -98,14 +90,15 @@ public class VistaComposicion extends JFrame{
                 
                 int v; 
                 try{
+                    
                     v = Integer.parseInt(veces.getText());
                 
-                    Composicion c = new Composicion(v);
+                    Convolucion c = new Convolucion(v);
 
                     for(int i=0; i<v; i++){
 
                         double continua = (double) c.continuas.get(i);
-                        int dis = (int) c.discretas.get(i);
+                        int dis = (int) c.discretos.get(i);
 
                         String indice = Integer.toString(i+1);
                         String discreta = Integer.toString(dis);
@@ -113,7 +106,9 @@ public class VistaComposicion extends JFrame{
                         String [] fila = new String []{indice,discreta,formatoContinuas(continua)};
                         dtm.addRow(fila);
                     }
+                    
                 }catch(NumberFormatException n){}
+                
             }
         });
         

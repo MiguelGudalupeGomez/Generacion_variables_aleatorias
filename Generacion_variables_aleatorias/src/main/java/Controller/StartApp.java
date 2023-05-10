@@ -6,6 +6,7 @@ package Controller;
 
 import Other.TransformadaInversa;
 import View.VistaComposicion;
+import View.WindowConvolucion;
 import View.WindowMain;
 import View.WindowPruebasEstadisticas;
 import java.awt.event.WindowAdapter;
@@ -56,7 +57,7 @@ public class StartApp {
             TransformadaInversa.getInstance();
         });
         this.windowApp.convulsion.addActionListener(e -> {
-            //code
+            new WindowConvolucion().setVisible(true);
         });
     }
 }
