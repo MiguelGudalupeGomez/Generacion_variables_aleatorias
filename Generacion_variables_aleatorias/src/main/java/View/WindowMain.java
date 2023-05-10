@@ -115,7 +115,7 @@ public class WindowMain extends JFrame {
         //this.transformadaInversa.setPreferredSize(prefDimension);
         this.transformadaInversa.setFont(font);
 
-        this.convulsion = new JButton("Método de la convulsión");
+        this.convulsion = new JButton("Método de Convolución");
         this.convulsion.setFont(font);
 
         //agrupamos los botones
