@@ -41,7 +41,7 @@ public class WindowPruebasEstadisticas extends JFrame{
     //hacemos uso del patron singelton para evitar que se cree mas de una instancia
     //de esta clase, cada que se hace click en el boton
     private WindowPruebasEstadisticas(){
-        super("Pruebas estadísticas de 50,000 de números, entre 1 y 100");
+        super("Pruebas estadísticas de 10,000 de números, entre 1 y 100");
         this.setSize(600, 400);
         this.setResizable(false);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

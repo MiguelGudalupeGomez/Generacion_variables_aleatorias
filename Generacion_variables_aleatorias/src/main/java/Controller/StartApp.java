@@ -4,8 +4,7 @@
  */
 package Controller;
 
-import Model.Composicion;
-import Model.PruebasEstadisticas;
+import Other.TransformadaInversa;
 import View.VistaComposicion;
 import View.WindowMain;
 import View.WindowPruebasEstadisticas;
@@ -18,16 +17,14 @@ import java.awt.event.WindowEvent;
  */
 public class StartApp {
 
-    private PruebasEstadisticas pEstadisticas;
-    private Composicion composicion;
-    private WindowMain windowApp;
+    private final WindowMain windowApp; //creamos una variable de de la ventan principal
 
     public StartApp(WindowMain windowApp) {
-        this.windowApp = windowApp;
-
-        this.initComponents();
+        this.windowApp = windowApp; //asignamos el valor del argumento a nuestra variable local
+        this.initComponents(); //inicamos los componentes
     }
-
+    
+    //definicmos los componentes
     private void initComponents() {
         //definicmos el comportamiento para el boton Composicion
         this.windowApp.composicionButton.addActionListener(e -> {
@@ -54,6 +51,12 @@ public class StartApp {
             });
 
         });
-
+        
+        this.windowApp.transformadaInversa.addActionListener(e ->{
+            TransformadaInversa.getInstance();
+        });
+        this.windowApp.convulsion.addActionListener(e -> {
+            //code
+        });
     }
 }

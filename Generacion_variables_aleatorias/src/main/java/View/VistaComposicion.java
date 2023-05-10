@@ -33,7 +33,7 @@ public class VistaComposicion extends JFrame{
         
         setSize(664,445); 
         setLocationRelativeTo(null); 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("Método de composición | Equipo 3");
         String [] encabezado = new String[]{"i","Discretas","Continuas"};
        
