@@ -34,13 +34,14 @@ public class WindowPruebasEstadisticas extends JFrame{
     public DefaultTableModel defaultTableModel;
     public JTable jTable;
     public JTextArea jTextArea;
-    public static final int SIZE_ARRAY = 1000;
+    public static final int SIZE_ARRAY = 10000;
+    public static final String CONTENIDO = "\n\tPRUEBAS ESTADÍSTICAS\n\n";
     
     
     //hacemos uso del patron singelton para evitar que se cree mas de una instancia
     //de esta clase, cada que se hace click en el boton
     private WindowPruebasEstadisticas(){
-        super("Pruebas estadísticas de 10,000,000 de números, entre 1 y 100");
+        super("Pruebas estadísticas de 50,000 de números, entre 1 y 100");
         this.setSize(600, 400);
         this.setResizable(false);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -95,14 +96,10 @@ public class WindowPruebasEstadisticas extends JFrame{
         
         this.panelResultados = new JPanel();
         this.panelResultados.setBounds(this.getWidth()/2, 40, this.getWidth(), this.getHeight()-90);
-        this.jTextArea = new JTextArea("\n\tPRUEBAS ESTADÍSTICAS");
+        this.jTextArea = new JTextArea(CONTENIDO);
         this.jTextArea.setPreferredSize(new Dimension(this.panelResultados.getWidth(), 
                               this.panelResultados.getHeight()));
         this.panelResultados.add(jTextArea);
-        
-        
-        
-        
         
         this.panelButton.add(buttonGenerarNumeros);
         this.panelButton.add(buttonRealizarPruebas);

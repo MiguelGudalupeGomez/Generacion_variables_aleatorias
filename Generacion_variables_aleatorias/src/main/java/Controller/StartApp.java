@@ -6,6 +6,7 @@ package Controller;
 
 import Model.Composicion;
 import Model.PruebasEstadisticas;
+import View.VistaComposicion;
 import View.WindowMain;
 import View.WindowPruebasEstadisticas;
 import java.awt.event.WindowAdapter;
@@ -30,7 +31,7 @@ public class StartApp {
     private void initComponents() {
         //definicmos el comportamiento para el boton Composicion
         this.windowApp.composicionButton.addActionListener(e -> {
-
+            new VistaComposicion().setVisible(true);
         });
 
         //definimos el comportamiento del boton pruebas estadísticas
