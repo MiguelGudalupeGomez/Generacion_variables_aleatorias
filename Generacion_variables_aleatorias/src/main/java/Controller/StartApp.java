@@ -5,6 +5,7 @@
 package Controller;
 
 import Other.TransformadaInversa;
+import static Other.TransformadaInversa.transformadaInversa;
 import View.VistaComposicion;
 import View.WindowConvolucion;
 import View.WindowMain;
@@ -56,7 +57,13 @@ public class StartApp {
         });
         
         this.windowApp.transformadaInversa.addActionListener(e ->{
-            TransformadaInversa.getInstance();
+            TransformadaInversa t = TransformadaInversa.getInstance();
+            t.addWindowListener(new WindowAdapter(){
+                @Override
+                public void windowClosing(WindowEvent e){
+                    TransformadaInversa.transformadaInversa = null;
+                }
+            });
         });
         this.windowApp.convulsion.addActionListener(e -> {
             new WindowConvolucion().setVisible(true);

@@ -20,8 +20,8 @@ import javax.swing.JTextField;
  * @author PC
  */
 
-public class TransformadaInversa implements ActionListener {
-    private final JFrame frame;  // Declaramos la ventana principal como un atributo de la clase
+public class TransformadaInversa extends JFrame implements ActionListener {
+    //private final JFrame frame;  // Declaramos la ventana principal como un atributo de la clase
     private final JPanel panel;  // Declaramos el panel para mostrar los números generados como un atributo de la clase
     private final JLabel label1;
     private final JLabel label2;
@@ -35,8 +35,8 @@ public class TransformadaInversa implements ActionListener {
 
     private TransformadaInversa() {
         // Crear la ventana principal
-        frame = new JFrame("Método de la transformada inversa");
-        frame.setLayout(new BorderLayout());
+        super("Método de la transformada inversa");
+        this.setLayout(new BorderLayout());
 
         // Crear el panel para mostrar los números generados aleatoriamente
         panel = new JPanel();
@@ -62,13 +62,13 @@ public class TransformadaInversa implements ActionListener {
         inputPanel.add(button);
 
         // Agregar el panel de entrada y el panel de salida a la ventana principal
-        frame.add(inputPanel, BorderLayout.NORTH);
-        frame.add(panel, BorderLayout.CENTER);
+        this.add(inputPanel, BorderLayout.NORTH);
+        this.add(panel, BorderLayout.CENTER);
 
         // Configurar la ventana principal
-        frame.setSize(400, 300);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setVisible(true);
+        this.setSize(400, 300);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setVisible(true);
     }
 
     @Override
@@ -91,7 +91,7 @@ public class TransformadaInversa implements ActionListener {
         }
 
         // Mostrar el resultado en una ventana emergente
-        JOptionPane.showMessageDialog(frame, "El resultado es: " + result);
+        JOptionPane.showMessageDialog(null, "El resultado es: " + result);
 
         // Agregar el número generado aleatoriamente al panel
         JLabel label = new JLabel(Double.toString(result));
