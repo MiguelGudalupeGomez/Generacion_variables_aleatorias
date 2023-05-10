@@ -8,9 +8,12 @@ package View;
  *
  * @author E m m a n u e l
  */
+import Model.Composicion;
 import javax.swing.*;
 import java.awt.Color; 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.table.DefaultTableModel;
@@ -37,6 +40,26 @@ public class VistaComposicion extends JFrame{
         dtm.setColumnIdentifiers(encabezado);
         tabla.setModel(dtm); 
         darFormato(); 
+    }
+    
+    public void limpiarTabla() {
+        
+        for(int i=0; i<dtm.getRowCount(); i++) {
+        
+            dtm.removeRow(i);
+            i-=1; 
+        }
+    }
+    
+    public String formatoContinuas(Double numero) {
+        String s = Double.toString(Math.abs(numero)); 
+        
+        if(s.length()>6){
+            
+            s = s.substring(0,6);
+        }
+        
+        return s; 
     }
     
     public void darFormato() {
@@ -66,6 +89,31 @@ public class VistaComposicion extends JFrame{
         tabla.setBounds(220,130,300,80);
         barra.setBounds(220,130,300,80); 
         barra.setViewportView(tabla);
+        
+        generar.addActionListener(new ActionListener() {
+           
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                limpiarTabla();
+                
+                int v; 
+                v = Integer.parseInt(veces.getText());
+                
+                Composicion c = new Composicion(v);
+                
+                for(int i=0; i<v; i++){
+                    
+                    double continua = (double) c.continuas.get(i);
+                    int dis = (int) c.discretas.get(i);
+                    
+                    String indice = Integer.toString(i+1);
+                    String discreta = Integer.toString(dis);
+                    
+                    String [] fila = new String []{indice,discreta,formatoContinuas(continua)};
+                    dtm.addRow(fila);
+                }
+            }
+        });
         
         panel.add(barra); 
         panel.add(icono); 
