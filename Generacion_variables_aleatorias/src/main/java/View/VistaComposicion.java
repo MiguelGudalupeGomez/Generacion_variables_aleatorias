@@ -68,26 +68,26 @@ public class VistaComposicion extends JFrame{
         panel.setLayout(null); 
         getContentPane().add(panel); 
         
-        titulo.setBounds(280,30,370,40); 
+        titulo.setBounds(260,30,370,40); 
         titulo.setFont(new Font("Roboto Black",Font.BOLD,26));
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         
-        pedir.setBounds(300,80,50,30);
+        pedir.setBounds(300,80,100,30);
         pedir.setFont(new Font("Roboto",Font.BOLD,14));
         
         veces.setBounds(390,80,109,30);
         Evento e = new Evento(); 
         veces.addKeyListener(e);
         
-        generar.setBounds(320,120,89,32);
+        generar.setBounds(335,125,89,32);
         generar.setBackground(new Color(255,255,255));
         generar.setForeground(new Color(255,204,0));
         
         JLabel icono = new JLabel(new ImageIcon("/Dados.png"));
         icono.setBounds(10,30,200,170);
         
-        tabla.setBounds(220,130,300,80);
-        barra.setBounds(220,130,300,80); 
+        tabla.setBounds(220,130,300,300);
+        barra.setBounds(220,130,300,300); 
         barra.setViewportView(tabla);
         
         generar.addActionListener(new ActionListener() {
