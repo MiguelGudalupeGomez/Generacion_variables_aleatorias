@@ -37,7 +37,8 @@ public class StartApp {
             //generamos una instancia de la ventana de las pruebas estadísticas
             WindowPruebasEstadisticas wPruebasEstadisticas = WindowPruebasEstadisticas.getInstance();
             //generamos una instancia del controlador de las pruebas estadísticas
-            ControllerPruebasEstadisticas.getInstance(wPruebasEstadisticas);
+            
+            ControllerPruebasEstadisticas controller = ControllerPruebasEstadisticas.getInstance(wPruebasEstadisticas);
 
             //detectemos que la ventana de pruebas estadísticas se cierre
             wPruebasEstadisticas.addWindowListener(new WindowAdapter() {
@@ -47,6 +48,7 @@ public class StartApp {
                     //con eso controlamos que solo se instancie el objeto cuando no hay otro objeto
                     //del mismo tipo ya creado
                     WindowPruebasEstadisticas.instancia = null;
+                    ControllerPruebasEstadisticas.controllerPruebasEstadisticas = null;
                 }
 
             });
