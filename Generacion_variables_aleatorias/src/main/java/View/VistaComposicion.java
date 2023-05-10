@@ -34,7 +34,7 @@ public class VistaComposicion extends JFrame{
         setSize(664,445); 
         setLocationRelativeTo(null); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Método de composición");
+        setTitle("Método de composición | Equipo 3");
         String [] encabezado = new String[]{"i","Discretas","Continuas"};
        
         dtm.setColumnIdentifiers(encabezado);
@@ -68,26 +68,26 @@ public class VistaComposicion extends JFrame{
         panel.setLayout(null); 
         getContentPane().add(panel); 
         
-        titulo.setBounds(260,30,370,40); 
+        titulo.setBounds(260,10,370,40); 
         titulo.setFont(new Font("Roboto Black",Font.BOLD,26));
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         
-        pedir.setBounds(300,80,100,30);
+        pedir.setBounds(350,60,100,30);
         pedir.setFont(new Font("Roboto",Font.BOLD,14));
         
-        veces.setBounds(390,80,109,30);
+        veces.setBounds(440,60,109,30);
         Evento e = new Evento(); 
         veces.addKeyListener(e);
         
-        generar.setBounds(335,125,89,32);
+        generar.setBounds(385,105,89,32);
         generar.setBackground(new Color(255,255,255));
         generar.setForeground(new Color(255,204,0));
         
-        JLabel icono = new JLabel(new ImageIcon("/Dados.png"));
+        JLabel icono = new JLabel(new ImageIcon("Dados.png"));
         icono.setBounds(10,30,200,170);
         
-        tabla.setBounds(220,130,300,300);
-        barra.setBounds(220,130,300,300); 
+        tabla.setBounds(280,155,330,240);
+        barra.setBounds(280,155,330,240); 
         barra.setViewportView(tabla);
         
         generar.addActionListener(new ActionListener() {
